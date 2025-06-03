@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campo e Cidade</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .campo {
+      background: linear-gradient(to top, #afa3e6, #7206f5);
+      color: #2e7d32;
+    }
+
+    .cidade {
+      background: linear-gradient(to top, hsl(32, 90%, 43%), #1e881e);
+      color: #263238;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .campo button {
+      background-color: #66bb6a;
+      color: rgb(192, 35, 35);
+    }
+
+    .cidade button {
+      background-color: #546e7a;
+      color: rgb(202, 10, 202);
+    }
+
+    img {
+      max-width: 300px;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body class="campo">
+  <div class="container">
+    <h1 id="titulo">Bem-vindo ao Campo</h1>
+    <p id="descricao">Ar puro, natureza e tranquilidade.</p>
+    <img id="imagem" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60" alt="Campo">
+    <button onclick="alternar()">Ir para a Cidade</button>
+  </div>
+
+  <script>
+    let noCampo = true;
+
+    function alternar() {
+      const body = document.body;
+      const titulo = document.getElementById('titulo');
+      const descricao = document.getElementById('descricao');
+      const imagem = document.getElementById('imagem');
+      const botao = document.querySelector('button');
+
+      if (noCampo) {
+        body.className = 'cidade';
+        titulo.textContent = 'Bem-vindo à Cidade';
+        descricao.textContent = 'Movimento, tecnologia e vida urbana.';
+        imagem.src = 'https://images.unsplash.com/photo-1461718103835-6e7ab9edcdb5?auto=format&fit=crop&w=800&q=60';
+        imagem.alt = 'Cidade';
+        botao.textContent = 'Ir para o Campo';
+      } else {
+        body.className = 'campo';
+        titulo.textContent = 'Bem-vindo ao Campo';
+        descricao.textContent = 'Ar puro, natureza e tranquilidade.';
+        imagem.src = 'IMG-2025.jpg';
+        imagem.alt = 'Campo';
+        botao.textContent = 'Ir para a Cidade';
+      }
+
+      noCampo = !noCampo;
+    }
+  </script>
+</body>
+</html>
+
+
